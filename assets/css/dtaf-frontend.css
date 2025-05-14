@@ -1,0 +1,214 @@
+/**
+ * Frontend styles for Direct to Admin Form
+ */
+
+/* Form container */
+.dtaf-form-container {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue",
+    sans-serif;
+}
+
+/* Form title */
+.dtaf-form-container h3 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+  font-size: 24px;
+  font-weight: 600;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+/* Form fields */
+.dtaf-form-container .dtaf-form-field {
+  margin-bottom: 20px;
+}
+
+.dtaf-form-container label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 600;
+  color: #333;
+}
+
+.dtaf-form-container input[type="text"],
+.dtaf-form-container input[type="email"],
+.dtaf-form-container input[type="tel"],
+.dtaf-form-container select,
+.dtaf-form-container textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 16px;
+  line-height: 1.5;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.dtaf-form-container input[type="text"]:focus,
+.dtaf-form-container input[type="email"]:focus,
+.dtaf-form-container input[type="tel"]:focus,
+.dtaf-form-container select:focus,
+.dtaf-form-container textarea:focus {
+  border-color: #0073aa;
+  box-shadow: 0 0 0 1px #0073aa;
+  outline: none;
+}
+
+.dtaf-form-container textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+/* Field description */
+.dtaf-form-container .dtaf-field-description {
+  display: block;
+  font-size: 13px;
+  color: #666;
+  margin-top: 4px;
+}
+
+/* File uploads */
+.dtaf-form-container .dtaf-file-upload {
+  margin-bottom: 10px;
+}
+
+.dtaf-form-container .dtaf-file-upload label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.dtaf-form-container .dtaf-file-upload input[type="file"] {
+  width: 100%;
+  padding: 8px 0;
+}
+
+.dtaf-form-container .dtaf-file-upload-info {
+  font-size: 13px;
+  color: #666;
+  margin-top: 5px;
+}
+
+/* Submit button */
+.dtaf-form-container .dtaf-submit-button {
+  background-color: #0073aa;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  width: 100%;
+  transition: background-color 0.3s;
+}
+
+.dtaf-form-container .dtaf-submit-button:hover {
+  background-color: #005a87;
+}
+
+/* Messages */
+.dtaf-message {
+  padding: 15px;
+  margin-bottom: 20px;
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+.dtaf-success-message {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.dtaf-error-message {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+/* Field validation */
+.dtaf-form-container .dtaf-field-error {
+  border-color: #dc3545;
+}
+
+.dtaf-form-container .dtaf-error-text {
+  color: #dc3545;
+  font-size: 13px;
+  margin-top: 4px;
+  display: block;
+}
+
+/* Required field indicator */
+.dtaf-form-container .dtaf-required {
+  color: #dc3545;
+  margin-left: 2px;
+}
+
+/* Honeypot field for spam protection */
+.dtaf-honeypot-field {
+  display: none !important;
+  visibility: hidden !important;
+  position: absolute !important;
+  left: -9999px !important;
+  top: -9999px !important;
+}
+
+/* Loading indicator */
+.dtaf-loading {
+  display: none;
+  text-align: center;
+  padding: 20px 0;
+}
+
+.dtaf-loading-spinner {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(0, 115, 170, 0.3);
+  border-radius: 50%;
+  border-top-color: #0073aa;
+  animation: dtaf-spin 1s ease-in-out infinite;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+@keyframes dtaf-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 600px) {
+  .dtaf-form-container {
+    padding: 15px;
+    margin: 10px auto;
+  }
+
+  .dtaf-form-container h3 {
+    font-size: 20px;
+  }
+
+  .dtaf-form-container input[type="text"],
+  .dtaf-form-container input[type="email"],
+  .dtaf-form-container input[type="tel"],
+  .dtaf-form-container select,
+  .dtaf-form-container textarea {
+    padding: 8px 10px;
+    font-size: 14px;
+  }
+
+  .dtaf-form-container .dtaf-submit-button {
+    padding: 10px 16px;
+    font-size: 14px;
+  }
+}

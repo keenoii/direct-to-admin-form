@@ -1,0 +1,601 @@
+/**
+ * Admin styles for Direct to Admin Form
+ */
+
+/* Variables */
+:root {
+  --dtaf-primary: #2271b1;
+  --dtaf-primary-hover: #135e96;
+  --dtaf-success: #00a32a;
+  --dtaf-warning: #dba617;
+  --dtaf-error: #d63638;
+  --dtaf-border: #c3c4c7;
+  --dtaf-light-bg: #f6f7f7;
+  --dtaf-card-shadow: 0 1px 3px rgba(0, 0, 0, 0.13);
+}
+
+/* Common Admin Styles */
+.dtaf-admin-page .card,
+.dtaf-admin-page .postbox {
+  background: #fff;
+  border: 1px solid var(--dtaf-border);
+  box-shadow: var(--dtaf-card-shadow);
+  margin-bottom: 20px;
+  border-radius: 4px;
+}
+
+.dtaf-admin-page .postbox .hndle,
+.dtaf-admin-page .card .title {
+  font-size: 16px;
+  padding: 12px 16px;
+  margin: 0;
+  line-height: 1.4;
+  border-bottom: 1px solid var(--dtaf-border);
+  font-weight: 600;
+  background-color: var(--dtaf-light-bg);
+  border-radius: 4px 4px 0 0;
+}
+
+.dtaf-admin-page .postbox .inside,
+.dtaf-admin-page .card .inside {
+  padding: 16px;
+}
+
+/* Dashboard Stats */
+.dtaf-admin-stats {
+  margin-top: 30px;
+}
+
+.dtaf-admin-stats .inside {
+  padding: 20px !important;
+}
+
+.dtaf-admin-stats h4 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-size: 15px;
+  color: #1d2327;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 8px;
+}
+
+.dtaf-admin-stats ul {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 1em;
+}
+
+.dtaf-admin-stats li {
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 10px;
+  background-color: #f8f9fa;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.dtaf-admin-stats li:hover {
+  background-color: #f0f0f1;
+}
+
+.dtaf-admin-stats li strong {
+  background-color: #e9ecef;
+  padding: 2px 8px;
+  border-radius: 20px;
+  font-weight: 600;
+  min-width: 30px;
+  text-align: center;
+}
+
+/* Table styling */
+.dtaf-submissions-table {
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.dtaf-submissions-table th {
+  font-weight: 600;
+}
+
+.dtaf-submissions-table .column-status .dtaf-status-text {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-weight: 500;
+  font-size: 0.85em;
+  text-align: center;
+  min-width: 100px;
+}
+
+.dtaf-submissions-table .status-ใหม่ .dtaf-status-text,
+.dtaf-submissions-table .status-new .dtaf-status-text {
+  background-color: #cce5ff;
+  color: #004085;
+}
+
+.dtaf-submissions-table .status-กำลังดำเนินการ .dtaf-status-text,
+.dtaf-submissions-table .status-in-progress .dtaf-status-text {
+  background-color: #fff3cd;
+  color: #856404;
+}
+
+.dtaf-submissions-table .status-รอข้อมูลเพิ่มเติม .dtaf-status-text,
+.dtaf-submissions-table .status-pending-information .dtaf-status-text {
+  background-color: #e2e3e5;
+  color: #383d41;
+}
+
+.dtaf-submissions-table .status-แก้ไขแล้ว .dtaf-status-text,
+.dtaf-submissions-table .status-resolved .dtaf-status-text,
+.dtaf-submissions-table .status-เสร็จสิ้น .dtaf-status-text {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.dtaf-submissions-table .status-ปิดเรื่อง .dtaf-status-text,
+.dtaf-submissions-table .status-closed .dtaf-status-text {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+.dtaf-submissions-table .row-actions {
+  margin-top: 4px;
+}
+
+.dtaf-submissions-table .row-actions span a {
+  padding: 2px 4px;
+  transition: all 0.2s;
+}
+
+.dtaf-submissions-table .row-actions span a:hover {
+  background-color: #f0f0f1;
+  border-radius: 3px;
+}
+
+/* Modal styles */
+.dtaf-modal {
+  display: none;
+  position: fixed;
+  z-index: 10000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.6);
+  animation: dtafFadeIn 0.3s;
+}
+
+@keyframes dtafFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.dtaf-modal-content {
+  background-color: #fefefe;
+  margin: 5% auto;
+  padding: 25px;
+  border: 1px solid #bbb;
+  width: 85%;
+  max-width: 800px;
+  border-radius: 8px;
+  position: relative;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+  animation: dtafSlideIn 0.3s;
+}
+
+@keyframes dtafSlideIn {
+  from {
+    transform: translateY(-30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.dtaf-modal-close {
+  color: #777;
+  float: right;
+  font-size: 32px;
+  font-weight: bold;
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  line-height: 1;
+  transition: color 0.2s;
+}
+
+.dtaf-modal-close:hover,
+.dtaf-modal-close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#dtaf-modal-body .form-table {
+  border-collapse: collapse;
+}
+
+#dtaf-modal-body .form-table th {
+  width: 160px;
+  font-weight: 600;
+  vertical-align: top;
+  padding: 12px 10px 12px 0;
+}
+
+#dtaf-modal-body .form-table td {
+  padding: 12px 10px;
+}
+
+#dtaf-modal-body .form-table tr {
+  border-bottom: 1px solid #f0f0f1;
+}
+
+#dtaf-modal-body .form-table tr:last-child {
+  border-bottom: none;
+}
+
+#dtaf-modal-body ul {
+  margin-top: 0;
+  padding-left: 20px;
+  list-style: disc;
+}
+
+#dtaf-modal-body h3 {
+  margin-top: 0;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+  color: var(--dtaf-primary);
+  font-size: 18px;
+}
+
+/* Detail Page */
+.dtaf-details-page #poststuff {
+  padding-top: 10px;
+}
+
+.dtaf-details-page #post-body.columns-2 #postbox-container-1 {
+  float: right;
+  margin-right: 0;
+  width: 280px;
+}
+
+.dtaf-details-page #post-body.columns-2 #post-body-content {
+  margin-right: 300px;
+}
+
+.dtaf-details-page .postbox .inside p {
+  margin-bottom: 0.8em;
+}
+
+.dtaf-details-page .postbox .inside .button-primary {
+  margin-top: 10px;
+}
+
+.dtaf-details-page .form-table th {
+  width: 140px;
+  font-weight: 600;
+}
+
+/* Settings & Form Manager page */
+.dtaf-admin-page form .form-table th {
+  width: 280px;
+  padding-right: 20px;
+}
+
+.dtaf-admin-page form .regular-text,
+.dtaf-admin-page form .large-text {
+  width: 100%;
+  max-width: 450px;
+}
+
+.dtaf-admin-page form .small-text {
+  width: 80px;
+}
+
+.dtaf-admin-page form .description {
+  color: #646970;
+  font-style: italic;
+  margin-top: 4px;
+  display: block;
+}
+
+.dtaf-admin-page table.wp-list-table .column-form-id {
+  width: 20%;
+}
+
+/* AJAX Message styling */
+#dtaf-ajax-message.notice {
+  padding: 10px 12px;
+  border-radius: 4px;
+  box-shadow: var(--dtaf-card-shadow);
+  animation: dtafSlideDown 0.3s;
+}
+
+@keyframes dtafSlideDown {
+  from {
+    transform: translateY(-10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+#dtaf-ajax-message.notice-success {
+  border-left-color: var(--dtaf-success);
+}
+
+#dtaf-ajax-message.notice-error {
+  border-left-color: var(--dtaf-error);
+}
+
+/* Form Manager Enhancements */
+.dtaf-form-manager-table .shortcode-column code {
+  background: #f6f7f7;
+  padding: 6px 10px;
+  border-radius: 4px;
+  display: inline-block;
+  border: 1px solid #dcdcde;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.dtaf-form-manager-table .shortcode-column code:hover {
+  background: #f0f0f1;
+  border-color: #c3c4c7;
+}
+
+.dtaf-form-manager-table .shortcode-column code.copied {
+  background-color: #d4edda;
+  border-color: #c3e6cb;
+}
+
+/* Custom Buttons */
+.dtaf-admin-page .dtaf-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-weight: 500;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.2s;
+  border: 1px solid transparent;
+}
+
+.dtaf-admin-page .dtaf-button-primary {
+  background-color: var(--dtaf-primary);
+  color: white;
+  border-color: var(--dtaf-primary);
+}
+
+.dtaf-admin-page .dtaf-button-primary:hover {
+  background-color: var(--dtaf-primary-hover);
+  border-color: var(--dtaf-primary-hover);
+}
+
+.dtaf-admin-page .dtaf-button-secondary {
+  background-color: white;
+  color: var(--dtaf-primary);
+  border-color: var(--dtaf-border);
+}
+
+.dtaf-admin-page .dtaf-button-secondary:hover {
+  background-color: var(--dtaf-light-bg);
+  border-color: var(--dtaf-primary);
+}
+
+.dtaf-admin-page .dtaf-button-danger {
+  background-color: white;
+  color: var(--dtaf-error);
+  border-color: var(--dtaf-border);
+}
+
+.dtaf-admin-page .dtaf-button-danger:hover {
+  background-color: var(--dtaf-error);
+  color: white;
+  border-color: var(--dtaf-error);
+}
+
+.dtaf-admin-page .dtaf-button svg {
+  margin-right: 6px;
+}
+
+/* Status Badge Colors */
+.dtaf-status-badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-weight: 500;
+  font-size: 0.85em;
+  text-align: center;
+  min-width: 100px;
+}
+
+.dtaf-status-new {
+  background-color: #cce5ff;
+  color: #004085;
+}
+
+.dtaf-status-in-progress {
+  background-color: #fff3cd;
+  color: #856404;
+}
+
+.dtaf-status-pending {
+  background-color: #e2e3e5;
+  color: #383d41;
+}
+
+.dtaf-status-resolved {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.dtaf-status-closed {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+/* Admin Bar Menu */
+#wpadminbar .dtaf-count {
+  display: inline-block;
+  vertical-align: top;
+  margin: 1px 0 0 2px;
+  padding: 0 5px;
+  min-width: 7px;
+  height: 17px;
+  border-radius: 11px;
+  background-color: #d63638;
+  color: #fff;
+  font-size: 9px;
+  line-height: 17px;
+  text-align: center;
+}
+
+/* Dashboard Widget */
+.dtaf-dashboard-widget {
+  margin-bottom: 20px;
+}
+
+.dtaf-dashboard-widget .inside {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.dtaf-dashboard-widget .dtaf-stat-card {
+  padding: 16px;
+  text-align: center;
+  border-bottom: 1px solid #eee;
+}
+
+.dtaf-dashboard-widget .dtaf-stat-card:last-child {
+  border-bottom: none;
+}
+
+.dtaf-dashboard-widget .dtaf-stat-number {
+  font-size: 36px;
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--dtaf-primary);
+}
+
+.dtaf-dashboard-widget .dtaf-stat-label {
+  color: #646970;
+  font-size: 14px;
+}
+
+.dtaf-dashboard-widget .dtaf-recent-list {
+  margin: 0;
+}
+
+.dtaf-dashboard-widget .dtaf-recent-list li {
+  padding: 12px 16px;
+  margin: 0;
+  border-bottom: 1px solid #eee;
+}
+
+.dtaf-dashboard-widget .dtaf-recent-list li:last-child {
+  border-bottom: none;
+}
+
+.dtaf-dashboard-widget .dtaf-recent-list .dtaf-recent-title {
+  font-weight: 500;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.dtaf-dashboard-widget .dtaf-recent-list .dtaf-recent-meta {
+  color: #646970;
+  font-size: 12px;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* File Attachments */
+.dtaf-file-attachments {
+  margin-top: 10px;
+}
+
+.dtaf-file-attachments .dtaf-file-item {
+  display: flex;
+  align-items: center;
+  padding: 8px 12px;
+  background-color: #f6f7f7;
+  border-radius: 4px;
+  margin-bottom: 8px;
+}
+
+.dtaf-file-attachments .dtaf-file-icon {
+  margin-right: 10px;
+  color: #646970;
+}
+
+.dtaf-file-attachments .dtaf-file-name {
+  flex-grow: 1;
+  font-size: 13px;
+}
+
+.dtaf-file-attachments .dtaf-file-actions {
+  display: flex;
+}
+
+.dtaf-file-attachments .dtaf-file-actions a {
+  padding: 2px 6px;
+  margin-left: 5px;
+  border-radius: 3px;
+  font-size: 12px;
+  text-decoration: none;
+}
+
+/* Responsive Adjustments */
+@media screen and (max-width: 782px) {
+  .dtaf-admin-page form .form-table th {
+    width: auto;
+  }
+
+  .dtaf-details-page #post-body.columns-2 #postbox-container-1,
+  .dtaf-details-page #post-body.columns-2 #post-body-content {
+    width: 100%;
+    float: none;
+    margin-right: 0;
+  }
+
+  .dtaf-admin-stats > div[style*="flex"] {
+    flex-direction: column;
+  }
+
+  .dtaf-modal-content {
+    width: 95%;
+    margin: 10% auto;
+    padding: 15px;
+  }
+
+  #dtaf-modal-body .form-table th,
+  #dtaf-modal-body .form-table td {
+    display: block;
+    width: 100%;
+    padding: 8px 0;
+  }
+
+  #dtaf-modal-body .form-table th {
+    padding-bottom: 0;
+  }
+}
+
+.dtaf-admin-stats > div[style*="flex"] > div {
+  margin-bottom: 15px;
+}
